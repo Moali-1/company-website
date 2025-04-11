@@ -41,7 +41,7 @@
 
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
-                    <button type="submit" class="dropdown-item text-danger">{{ __('keywordes.logout') }}</button>
+                    <button type="submit" class="dropdown-item text-danger">{{ __('keywords.logout') }}</button>
                 </form>
 
             </div>

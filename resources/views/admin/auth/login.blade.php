@@ -1,6 +1,6 @@
 @extends('admin.auth.master')
 
-@section('title', __('keywordes.login'))
+@section('title', __('keywords.login')))
 
 @section('content')
     <div class="row align-items-center h-100">
@@ -17,29 +17,29 @@
                     </g>
                 </svg>
             </a>
-            <h1 class="mb-3 h6">{{ __('keywordes.sing_in') }}</h1>
+            <h1 class="mb-3 h6">{{ __('keywords.sing_in') }}</h1>
             <x-auth-session-status class="mb-4" :status="session('status')" />
 
             <div class="form-group">
-                <label for="inputEmail" class="sr-only">{{ __('keywordes.email') }}</label>
+                <label for="inputEmail" class="sr-only">{{ __('keywords.email') }}</label>
                 <input type="email" id="inputEmail" class="form-control form-control-lg"
-                    placeholder="{{ __('keywordes.email') }}" name="email" :value="old('email')">
+                    placeholder="{{ __('keywords.email') }}" name="email" :value="old('email')">
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" class="sr-only">{{ __('keywordes.password') }}</label>
+                <label for="inputPassword" class="sr-only">{{ __('keywords.password') }}</label>
                 <input type="password" id="inputPassword" class="form-control form-control-lg"
-                    placeholder="{{ __('keywordes.password') }}" name="password">
+                    placeholder="{{ __('keywords.password') }}" name="password">
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <div class="mb-3 checkbox">
                 <label>
-                    <input type="checkbox" value="remember-me" name="remember"> {{ __('keywordes.remember_me') }} </label>
+                    <input type="checkbox" value="remember-me" name="remember"> {{ __('keywords.remember_me') }} </label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit"> {{ __('keywordes.login') }} </button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"> {{ __('keywords.login') }} </button>
         </form>
     </div>
 

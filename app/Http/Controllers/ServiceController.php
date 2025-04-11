@@ -1,19 +1,19 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Controllers;
 
-use {{ namespacedModel }};
-use {{ rootNamespace }}Http\Controllers\Controller;
-use {{ namespacedRequests }}
+use App\Models\Service;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 
-class {{ class }} extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-          $services = {{ model }}::paginate(config('pagination.count'));
+        $services = Service::paginate(config('pagination.count'));
         return view('admin.services.index', get_defined_vars());
     }
 
@@ -28,17 +28,18 @@ class {{ class }} extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store({{ storeRequest }} $request)
+    public function store(StoreServiceRequest $request)
     {
+
         $data = $request->validated();
-        {{ model }}::create($data);
+        Service::create($data);
         return to_route('admin.services.index')->with('success', __('keywords.create_successfully'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show({{ model }} ${{ modelVariable }})
+    public function show(Service $service)
     {
         return view('admin.services.show', get_defined_vars());
     }
@@ -46,7 +47,7 @@ class {{ class }} extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit({{ model }} ${{ modelVariable }})
+    public function edit(Service $service)
     {
         return view('admin.services.edit', get_defined_vars());
     }
@@ -54,19 +55,19 @@ class {{ class }} extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
+    public function update(UpdateServiceRequest $request, Service $service)
     {
-          $data = $request->validated();
-        ${{ modelVariable }}->update($data);
+        $data = $request->validated();
+        $service->update($data);
         return to_route('admin.services.index')->with('success', __('keywords.updated_successfully'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function destroy(Service $service)
     {
-         ${{ modelVariable }}->delete();
+        $service->delete();
         return to_route(('admin.services.index'))->with('success', __('keywords.delete'));
     }
 }

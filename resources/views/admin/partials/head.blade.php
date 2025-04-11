@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>{{ __('keywordes.dashboard') }} - @yield('title')</title>
+    <title>{{ __('keywords.dashboard') }} - @yield('title')</title>
     <!-- Simple bar CSS -->
     <!-- Fonts CSS -->
     <link rel="stylesheet" href="{{ asset($dir) }}/css/simplebar.css">
