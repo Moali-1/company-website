@@ -1,15 +1,13 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.messages'))
 
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="mb-3 page-title-box d-flex align-items-center justify-content-between">
-                    <h2 class="m-0 h5 page-title">{{ __('keywords.services') }}</h2>
-
-                    <x-action-button href="{{ route('admin.services.create') }}" type="create"></x-action-button>
+                    <h2 class="m-0 h5 page-title">{{ __('keywords.messages') }}</h2>
                 </div>
 
 
@@ -21,33 +19,31 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>{{ __('keywords.title') }}</th>
-                                    <th width="10%">{{ __('keywords.icon') }}</th>
+                                    <th>{{ __('keywords.name') }}</th>
+                                    <th>{{ __('keywords.email') }}</th>
+                                    <th>{{ __('keywords.subject') }}</th>
                                     <th width="15%">{{ __('keywords.action') }}</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (count($services) > 0)
-                                    @foreach ($services as $key => $service)
+                                @if (count($messages) > 0)
+                                    @foreach ($messages as $key => $message)
                                         <tr>
-                                            <td>{{ $services->firstItem() + $loop->index }}</td>
-                                            <td>{{ $service->title }}</td>
-                                            <td>{{ $service->icon }}</td>
+                                            <td>{{ $messages->firstItem() + $loop->index }}</td>
+                                            <td>{{ $message->name }}</td>
+                                            <td>{{ $message->email }}</td>
+                                            <td>{{ $message->subject }}</td>
                                             <td>
-                                                <x-action-button
-                                                    href="{{ route('admin.services.edit', ['service' => $service]) }}"
-                                                    type="edit"></x-action-button>
-
 
                                                 <x-action-button
-                                                    href="{{ route('admin.services.show', ['service' => $service]) }}"
+                                                    href="{{ route('admin.messages.show', ['message' => $message]) }}"
                                                     type="show">
                                                 </x-action-button>
 
                                                 <x-delete-button
-                                                    href="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                    id="{{ $service->id }}"></x-delete-button>
+                                                    href="{{ route('admin.messages.destroy', ['message' => $message]) }}"
+                                                    id="{{ $message->id }}"></x-delete-button>
 
                                             </td>
                                         </tr>
@@ -57,7 +53,7 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $services->render('pagination::bootstrap-4') }}
+                        {{ $messages->render('pagination::bootstrap-4') }}
 
                     </div>
                 </div>

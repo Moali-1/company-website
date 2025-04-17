@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SubscribersController;
+use App\Http\Controllers\TestimonialController;
+use GrahamCampbell\ResultType\Success;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -39,6 +46,31 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // ===================== SERVICES  =======//
         Route::controller(ServiceController::class)->group(function () {
             Route::resource('services', ServiceController::class);
+        });
+
+        // =====================   FEATURES   =======//
+        Route::controller(FeatureController::class)->group(function () {
+            Route::resource('features', FeatureController::class);
+        });
+
+        // =====================   MESSAGE   =======//
+        Route::controller(MessageController::class)->group(function () {
+            Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
+        });
+
+        // =====================   SUBSCRIBERS   =======//
+        Route::controller(SubscribersController::class)->group(function () {
+            Route::resource('subscribers', SubscribersController::class)->only(['index', 'destroy']);
+        });
+
+        // =====================   TESTIMONIALS   =======//
+        Route::controller(TestimonialController::class)->group(function () {
+            Route::resource('testimonials', TestimonialController::class);
+        });
+
+        // =====================   SETTINGS   =======//
+        Route::controller(SettingController::class)->group(function () {
+            Route::resource('settings', SettingController::class)->only(['index', 'update']);
         });
     });
 

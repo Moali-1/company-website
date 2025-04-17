@@ -35,6 +35,26 @@
             {{-- Services --}}
             <x-sidebar-tap href="{{ route('admin.services.index') }}" icon="fe-codesandbox"
                 name="{{ __('keywords.services') }}"></x-sidebar-tap>
+
+            {{-- Features --}}
+            <x-sidebar-tap href="{{ route('admin.features.index') }}" icon="fe-bookmark"
+                name="{{ __('keywords.features') }}"></x-sidebar-tap>
+
+            {{-- Messages --}}
+            <x-sidebar-tap href="{{ route('admin.messages.index') }}" icon="fe-message-square"
+                name="{{ __('keywords.messages') }}"></x-sidebar-tap>
+
+            {{-- Subscribers --}}
+            <x-sidebar-tap href="{{ route('admin.subscribers.index') }}" icon="fe-users"
+                name="{{ __('keywords.subscribers') }}"></x-sidebar-tap>
+
+            {{-- Testimonials --}}
+            <x-sidebar-tap href="{{ route('admin.testimonials.index') }}" icon="fe-message-circle"
+                name="{{ __('keywords.testimonials') }}"></x-sidebar-tap>
+
+            {{-- Settings --}}
+            <x-sidebar-tap href="{{ route('admin.settings.index') }}" icon="fe-settings"
+                name="{{ __('keywords.settings') }}"></x-sidebar-tap>
         </ul>
     </nav>
 </aside>

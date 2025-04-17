@@ -1,15 +1,13 @@
 @extends('admin.master')
 
-@section('title', __('keywords.services'))
+@section('title', __('keywords.subscribers'))
 
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="mb-3 page-title-box d-flex align-items-center justify-content-between">
-                    <h2 class="m-0 h5 page-title">{{ __('keywords.services') }}</h2>
-
-                    <x-action-button href="{{ route('admin.services.create') }}" type="create"></x-action-button>
+                    <h2 class="m-0 h5 page-title">{{ __('keywords.subscribers') }}</h2>
                 </div>
 
 
@@ -21,33 +19,22 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>{{ __('keywords.title') }}</th>
-                                    <th width="10%">{{ __('keywords.icon') }}</th>
+                                    <th>{{ __('keywords.email') }}</th>
                                     <th width="15%">{{ __('keywords.action') }}</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (count($services) > 0)
-                                    @foreach ($services as $key => $service)
+                                @if (count($subscribers) > 0)
+                                    @foreach ($subscribers as $key => $subscriber)
                                         <tr>
-                                            <td>{{ $services->firstItem() + $loop->index }}</td>
-                                            <td>{{ $service->title }}</td>
-                                            <td>{{ $service->icon }}</td>
+                                            <td>{{ $subscribers->firstItem() + $loop->index }}</td>
+                                            <td>{{ $subscriber->email }}</td>
                                             <td>
-                                                <x-action-button
-                                                    href="{{ route('admin.services.edit', ['service' => $service]) }}"
-                                                    type="edit"></x-action-button>
-
-
-                                                <x-action-button
-                                                    href="{{ route('admin.services.show', ['service' => $service]) }}"
-                                                    type="show">
-                                                </x-action-button>
 
                                                 <x-delete-button
-                                                    href="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                    id="{{ $service->id }}"></x-delete-button>
+                                                    href="{{ route('admin.subscribers.destroy', ['subscriber' => $subscriber]) }}"
+                                                    id="{{ $subscriber->id }}"></x-delete-button>
 
                                             </td>
                                         </tr>
@@ -57,7 +44,7 @@
                                 @endif
                             </tbody>
                         </table>
-                        {{ $services->render('pagination::bootstrap-4') }}
+                        {{ $subscribers->render('pagination::bootstrap-4') }}
 
                     </div>
                 </div>
